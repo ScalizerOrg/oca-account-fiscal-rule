@@ -22,7 +22,7 @@ class AccountTax(models.Model):
         if self.is_ecotax:
             self.amount_type = "code"
             self.include_base_amount = True
-            self.python_compute = """
+            self.formula = """
 # price_unit
 # product: product.product object or None
 # partner: res.partner object or None
