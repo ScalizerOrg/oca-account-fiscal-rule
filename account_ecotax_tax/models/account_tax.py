@@ -22,11 +22,7 @@ class AccountTax(models.Model):
         if self.is_ecotax:
             self.amount_type = "code"
             self.include_base_amount = True
-            self.formula = """
-# price_unit
-# product: product.product object or None
-# partner: res.partner object or None
-# for weight based ecotax
-# result = quantity and  product.weight_based_ecotax * quantity or 0.0
-result = quantity and product.fixed_ecotax  * quantity or 0.0
-            """
+            # Example for weight based ecotax:
+            # quantity and  product.weight_based_ecotax * quantity or 0.0
+            # Example for fixed ecotax:
+            self.formula = "quantity and product.fixed_ecotax  * quantity or 0.0"
